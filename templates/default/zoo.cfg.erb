@@ -1,0 +1,8 @@
+<% node['zookeeper']['config'].each do |k, v| -%>
+  <% if v -%>
+<%= k %>=<%= v %>
+  <% end %>
+<% end %>
+<% @zookeepers.each do |index, value| -%>
+server.<%= index %>=<%= value %>:<%= node['zookeeper']['port-first'] %>:<%= node['zookeeper']['port-second'] %>
+<% end %>
